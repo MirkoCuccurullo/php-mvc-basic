@@ -1,4 +1,5 @@
 <?php
+namespace Routers;
 
 class PatternRouter
 {
@@ -36,6 +37,7 @@ class PatternRouter
                 $controllerObj->$methodName();
             } catch(Error $e) {
                 // For some reason the class/method doesn't load
+                echo $e->getMessage();
                 http_response_code(500);
             }
         } else {
